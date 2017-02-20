@@ -1,8 +1,8 @@
 <?php
 require "vendor/autoload.php";
-$configFile = __DIR__ . '/config.json';
+$dataDir = getenv('KBC_DATADIR') . DIRECTORY_SEPARATOR;
+$configFile = $dataDir . 'config.json';
 $config = json_decode(file_get_contents($configFile), true);
-$dataDir = __DIR__ . DIRECTORY_SEPARATOR;
 
 $outFile = new \Keboola\Csv\CsvFile(
     $dataDir . 'out' . DIRECTORY_SEPARATOR . 'tables' . DIRECTORY_SEPARATOR . 'currencies.csv'
